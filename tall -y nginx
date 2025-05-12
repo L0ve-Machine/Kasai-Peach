@@ -1,0 +1,11 @@
+[0;1;32m●[0m gunicorn.service - gunicorn daemon for myproject
+     Loaded: loaded (]8;;file://vm-410102de-ea.novalocal/etc/systemd/system/gunicorn.service/etc/systemd/system/gunicorn.service]8;;; [0;1;32menabled[0m; preset: [0;1;38;5;185mdisabled[0m)
+     Active: [0;1;32mactive (running)[0m since Mon 2025-05-12 11:50:33 JST; 22ms ago
+   Main PID: 32154 (gunicorn)
+      Tasks: 1 (limit: 4598)
+     Memory: 2.6M
+        CPU: 8ms
+     CGroup: /system.slice/gunicorn.service
+             └─[0;38;5;245m32154 /var/www/myproject/venv/bin/python3 /var/www/myproject/venv/bin/gunicorn --workers 3 --bind unix:/var/www/myproject/run/gunicorn.sock treeManagement.wsgi:application[0m
+
+May 12 11:50:33 vm-410102de-ea.novalocal systemd[1]: Started gunicorn daemon for myproject.

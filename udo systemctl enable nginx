@@ -1,0 +1,19 @@
+[0;1;32m●[0m nginx.service - The nginx HTTP and reverse proxy server
+     Loaded: loaded (]8;;file://vm-410102de-ea.novalocal/usr/lib/systemd/system/nginx.service/usr/lib/systemd/system/nginx.service]8;;; [0;1;38;5;185mdisabled[0m; preset: [0;1;38;5;185mdisabled[0m)
+     Active: [0;1;32mactive (running)[0m since Mon 2025-05-12 11:54:21 JST; 6s ago
+    Process: 32754 ExecStartPre=/usr/bin/rm -f /run/nginx.pid (code=exited, status=0/SUCCESS)
+    Process: 32755 ExecStartPre=/usr/sbin/nginx -t (code=exited, status=0/SUCCESS)
+    Process: 32756 ExecStart=/usr/sbin/nginx (code=exited, status=0/SUCCESS)
+   Main PID: 32757 (nginx)
+      Tasks: 3 (limit: 4598)
+     Memory: 3.0M
+        CPU: 17ms
+     CGroup: /system.slice/nginx.service
+             ├─[0;38;5;245m32757 "nginx: master process /usr/sbin/nginx"[0m
+             ├─[0;38;5;245m32758 "nginx: worker process"[0m
+             └─[0;38;5;245m32759 "nginx: worker process"[0m
+
+May 12 11:54:21 vm-410102de-ea.novalocal systemd[1]: Starting The nginx HTTP and reverse proxy server...
+May 12 11:54:21 vm-410102de-ea.novalocal nginx[32755]: nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+May 12 11:54:21 vm-410102de-ea.novalocal nginx[32755]: nginx: configuration file /etc/nginx/nginx.conf test is successful
+May 12 11:54:21 vm-410102de-ea.novalocal systemd[1]: Started The nginx HTTP and reverse proxy server.
