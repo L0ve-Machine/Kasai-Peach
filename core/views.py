@@ -35,22 +35,25 @@ class VarietyListView(LoginRequiredMixin, TemplateView):
         return ctx
 @login_required
 def home(request):
-    varieties = Variety.objects.all()
+    # 🍑 桃・🍇 ぶどうの品種リスト
+    peaches = Variety.objects.filter(fruit_type="peach").order_by("name")
+    grapes  = Variety.objects.filter(fruit_type="grape").order_by("name")
 
-    # 今日
+    # 今日の件数
     today = date.today()
     today_logs = WorkLog.objects.filter(start_at__date=today)
     today_count = today_logs.count()
 
-    # 今月の作業時間
+    # 今月の作業時間（分）
     month_start = today.replace(day=1)
     month_logs = WorkLog.objects.filter(start_at__date__gte=month_start)
     total_seconds = sum(
-        (w.end_at - w.start_at).total_seconds() for w in month_logs if w.end_at
+        (w.end_at - w.start_at).total_seconds()
+        for w in month_logs if w.end_at
     )
     total_minutes = int(total_seconds // 60)
 
-    # 作業者別ランキング（今月）
+    # 作業者別ランキング
     user_ranking = (
         month_logs
         .values("user__username")
@@ -59,7 +62,8 @@ def home(request):
     )
 
     return render(request, "core/home.html", {
-        "varieties": varieties,
+        "peaches": peaches,
+        "grapes": grapes,
         "today_count": today_count,
         "total_minutes": total_minutes,
         "user_ranking": user_ranking,
@@ -283,12 +287,21 @@ class TaskScheduleUpdateView(LoginRequiredMixin, UpdateView):
     def get_success_url(self):
         return reverse_lazy("schedule_list", args=[self.object.variety_id])
 
+# core/views.py
+
 class TaskScheduleDeleteView(LoginRequiredMixin, DeleteView):
     model = TaskSchedule
     template_name = "core/schedule_confirm_delete.html"
 
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        # self.object は削除対象の TaskSchedule インスタンス
+        ctx["variety_id"] = self.object.variety_id
+        return ctx
+
     def get_success_url(self):
         return reverse_lazy("schedule_list", args=[self.object.variety_id])
+
 
 
 
@@ -375,21 +388,14 @@ def field_weather_view(request, field_id):
     })
 
 
-from django.shortcuts import render, redirect
-from django.urls import reverse
-from django.views.decorators.csrf import csrf_exempt
 
-SITE_PASSWORD = "Peach"
 
-def site_password_view(request):
-    error = ''
-    if request.method == 'POST':
-        pw = request.POST.get('password', '')
-        if pw == SITE_PASSWORD:
-            request.session['passed_site_password'] = True
-            # 入力前のページへ戻したい場合は next パラメータを使うように拡張できます
-            return redirect(reverse('home'))
-        else:
-            error = 'パスワードが違います。'
-    return render(request, 'core/site_password.html', {'error': error})
+class AllSchedulesView(LoginRequiredMixin, TemplateView):
+    template_name = "core/all_schedules.html"
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx["peaches"] = Variety.objects.filter(fruit_type="peach").order_by("name")
+        ctx["grapes"]  = Variety.objects.filter(fruit_type="grape").order_by("name")
+        return ctx
 

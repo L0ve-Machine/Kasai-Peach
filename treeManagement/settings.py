@@ -52,7 +52,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
-    'core.middleware.SitePasswordMiddleware',
 ]
 
 ROOT_URLCONF = 'treeManagement.urls'

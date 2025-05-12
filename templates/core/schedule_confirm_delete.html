@@ -1,14 +1,20 @@
+{# templates/core/schedule_confirm_delete.html #}
 {% extends "base.html" %}
 {% load i18n %}
 
 {% block title %}{% trans "スケジュール削除" %}{% endblock %}
 
 {% block content %}
-<h1 class="h5 text-danger">{% trans "このスケジュールを削除してよいですか？" %}</h1>
-<p>{{ object.name }} ({{ object.start_period }} ～ {{ object.end_period }})</p>
-<form method="post">
-  {% csrf_token %}
-  <button class="btn btn-danger">{% trans "削除" %}</button>
-  <a href="{% url 'schedule_list' variety.id %}" class="btn btn-secondary">{% trans "キャンセル" %}</a>
-</form>
+  <h1 class="h5 mb-3">{% trans "スケジュール削除" %}</h1>
+  <p>{% trans "このスケジュールを削除してよいですか？" %}</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">{% trans "削除" %}</button>
+    {# object.variety_id を使えば、context に渡さなくてもOK #}
+    <a href="{% url 'schedule_list' object.variety_id %}" class="btn btn-secondary">
+      {% trans "キャンセル" %}
+    </a>
+  </form>
 {% endblock %}
+

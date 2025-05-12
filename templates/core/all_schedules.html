@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "全スケジュール一覧" %}{% endblock %}
+
+{% block content %}
+<h1 class="h4 mb-4">{% trans "全スケジュール一覧" %}</h1>
+
+<!-- 🍑 桃の品種 -->
+<h2 class="h6 mt-4">🍑 {% trans "桃品種のスケジュール" %}</h2>
+<div class="row g-4">
+  {% for v in peaches %}
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body d-flex flex-column">
+          <h6 class="card-title">{{ v.name }}</h6>
+          <p class="small text-muted">{{ v.harvest_start }}</p>
+          <a href="{% url 'schedule_list' v.id %}"
+             class="btn btn-outline-primary mt-auto btn-sm">
+            {% trans "設定へ" %}
+          </a>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p class="text-center text-muted">{% trans "桃品種は未登録です。" %}</p>
+  {% endfor %}
+</div>
+
+<!-- 🍇 ぶどうの品種 -->
+<h2 class="h6 mt-5">🍇 {% trans "ぶどう品種のスケジュール" %}</h2>
+<div class="row g-4">
+  {% for v in grapes %}
+    <div class="col-6 col-md-4 col-lg-3">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body d-flex flex-column">
+          <h6 class="card-title">{{ v.name }}</h6>
+          <p class="small text-muted">{{ v.harvest_start }}</p>
+          <a href="{% url 'schedule_list' v.id %}"
+             class="btn btn-outline-success mt-auto btn-sm">
+            {% trans "設定へ" %}
+          </a>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p class="text-center text-muted">{% trans "ぶどう品種は未登録です。" %}</p>
+  {% endfor %}
+</div>
+{% endblock %}

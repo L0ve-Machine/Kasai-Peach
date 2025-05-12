@@ -7,8 +7,8 @@
 <h1 class="h4 mb-4">{% trans "ダッシュボード" %}</h1>
 
 <div class="row g-4 mb-4">
-  <!-- 今日の作業件数 -->
-  <div class="col-md-4">
+  <!-- 1. 今日の作業件数 -->
+  <div class="col-md-3">
     <div class="card text-white bg-primary h-100 shadow">
       <div class="card-body">
         <h5 class="card-title">{% trans "今日の作業件数" %}</h5>
@@ -16,9 +16,8 @@
       </div>
     </div>
   </div>
-
-  <!-- 今月の作業時間 -->
-  <div class="col-md-4">
+  <!-- 2. 今月の作業時間 -->
+  <div class="col-md-3">
     <div class="card text-white bg-success h-100 shadow">
       <div class="card-body">
         <h5 class="card-title">{% trans "今月の作業時間（分）" %}</h5>
@@ -26,9 +25,8 @@
       </div>
     </div>
   </div>
-
-  <!-- 作業者別ランキング -->
-  <div class="col-md-4">
+  <!-- 3. 作業者別ランキング -->
+  <div class="col-md-3">
     <div class="card text-white bg-secondary h-100 shadow">
       <div class="card-body">
         <h5 class="card-title">{% trans "今月の作業ランキング" %}</h5>
@@ -42,23 +40,19 @@
       </div>
     </div>
   </div>
-</div>
-
-<!-- 作業スケジュール管理へのリンク -->
-{% if varieties %}
-  <div class="row">
-    <div class="col-md-6 col-lg-4">
-      <div class="card h-100 shadow">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">{% trans "作業スケジュール" %}</h5>
-          <p class="card-text">{% trans "品種ごとの作業期間を設定" %}</p>
-          <a href="{% url 'schedule_list' varieties.0.id %}" class="btn btn-outline-primary mt-auto">
-            {% trans "桃のスケジュール一覧へ" %}
-          </a>
-        </div>
+  <!-- 全スケジュール一覧へのリンク -->
+  <div class="col-md-4 col-lg-3">
+    <div class="card h-100 shadow">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">{% trans "スケジュール一括管理" %}</h5>
+        <p class="card-text">{% trans "すべての品種のスケジュール設定画面を一覧" %}</p>
+        <a href="{% url 'all_schedules' %}"
+           class="btn btn-outline-primary mt-auto">
+          {% trans "一覧を見る" %}
+        </a>
       </div>
     </div>
   </div>
-{% endif %}
+</div>
 {% endblock %}
 
