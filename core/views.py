@@ -183,6 +183,16 @@ class VarietyDeleteView(LoginRequiredMixin, DeleteView):
     template_name = "core/variety_confirm_delete.html"
     success_url = reverse_lazy("variety_list")
 
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        try:
+            return super().post(request, *args, **kwargs)
+        except ProtectedError as e:
+            messages.error(request,
+                "この品種はまだ圃場から参照されているため、削除できません。"
+            )
+            return redirect(self.success_url)
+
 # Field CRUD
 class FieldListView(LoginRequiredMixin, TemplateView):
     template_name = "core/field_list.html"
