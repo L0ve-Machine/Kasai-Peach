@@ -1,0 +1,74 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-11 23:11+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\vendor\rest_framework\templates\rest_framework\admin.html:116
+#: .\vendor\rest_framework\templates\rest_framework\base.html:136
+msgid "Extra Actions"
+msgstr ""
+
+#: .\vendor\rest_framework\templates\rest_framework\admin.html:130
+#: .\vendor\rest_framework\templates\rest_framework\base.html:150
+msgid "Filters"
+msgstr ""
+
+#: .\vendor\rest_framework\templates\rest_framework\base.html:37
+msgid "navbar"
+msgstr ""
+
+#: .\vendor\rest_framework\templates\rest_framework\base.html:75
+msgid "content"
+msgstr ""
+
+#: .\vendor\rest_framework\templates\rest_framework\base.html:78
+msgid "request form"
+msgstr ""
+
+#: .\vendor\rest_framework\templates\rest_framework\base.html:157
+msgid "main content"
+msgstr ""
+
+#: .\vendor\rest_framework\templates\rest_framework\base.html:173
+msgid "request info"
+msgstr ""
+
+#: .\vendor\rest_framework\templates\rest_framework\base.html:177
+msgid "response info"
+msgstr ""
+
+#: .\vendor\rest_framework\templates\rest_framework\filters\ordering.html:3
+msgid "Ordering"
+msgstr ""
+
+#: .\vendor\rest_framework\templates\rest_framework\filters\search.html:2
+#: .\vendor\rest_framework\templates\rest_framework\filters\search.html:8
+msgid "Search"
+msgstr ""
+
+#: .\vendor\rest_framework\templates\rest_framework\horizontal\radio.html:4
+#: .\vendor\rest_framework\templates\rest_framework\inline\radio.html:3
+#: .\vendor\rest_framework\templates\rest_framework\vertical\radio.html:3
+msgid "None"
+msgstr ""
+
+#: .\vendor\rest_framework\templates\rest_framework\horizontal\select_multiple.html:4
+#: .\vendor\rest_framework\templates\rest_framework\inline\select_multiple.html:3
+#: .\vendor\rest_framework\templates\rest_framework\vertical\select_multiple.html:3
+msgid "No items to select."
+msgstr ""

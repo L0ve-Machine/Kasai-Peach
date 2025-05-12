@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}房詳細: {{ cluster.number }}{% endblock %}
+{% block content %}
+<h1 class="h4 mb-3">房: {{ cluster.number }}</h1>
+<p><strong>樹木:</strong> <a href="{% url 'tree_detail' cluster.tree.qr_id %}">{{ cluster.tree.qr_id }}</a></p>
+<p><strong>撮影日時:</strong> {{ cluster.created_at|date:"Y-m-d H:i" }}</p>
+<img
+  src="{% url 'cluster_qr_png' cluster.id %}"
+  class="img-fluid"
+  alt="Cluster QR">
+{% endblock %}

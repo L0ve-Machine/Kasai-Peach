@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ variety.name }} の作業スケジュール{% endblock %}
+
+{% block content %}
+<h1 class="h5 mb-3">{{ variety.name }} の作業スケジュール</h1>
+
+<a href="{% url 'schedule_add' variety.id %}" class="btn btn-primary mb-3">
+  {% trans "スケジュール追加" %}
+</a>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>{% trans "番号" %}</th>
+      <th>{% trans "作業種" %}</th>
+      <th>{% trans "開始時期" %}</th>
+      <th>{% trans "終了時期" %}</th>
+      <th>{% trans "単位" %}</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for s in schedules %}
+    <tr>
+      <td>{{ s.seq }}</td>
+      <td>{{ s.task_type.name }}</td>
+      <td>{{ s.start_period }}</td>
+      <td>{{ s.end_period }}</td>
+      <td>{{ s.unit }}</td>
+      <td>
+        <a href="{% url 'schedule_edit' variety.id s.pk %}" class="btn btn-sm btn-secondary">
+          {% trans "編集" %}
+        </a>
+        <a href="{% url 'schedule_delete' variety.id s.pk %}" class="btn btn-sm btn-danger">
+          {% trans "削除" %}
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

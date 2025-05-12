@@ -1,0 +1,7 @@
+# .fcgi ファイルを FastCGI として扱う
+AddHandler x-httpd-fcgi .fcgi
+
+RewriteEngine On
+# 実在しないパスはすべて index.fcgi に渡す
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ /index.fcgi/$1 [QSA,L]

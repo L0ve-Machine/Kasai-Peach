@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "樹木詳細" %}: {{ tree.qr_id }}{% endblock %}
+
+{% block content %}
+<h1 class="h4 mb-3">{% trans "樹木詳細" %}: {{ tree.qr_id }}</h1>
+
+<div class="card mb-4">
+  <div class="card-body">
+    <!-- QRコード -->
+    <p>
+      <img
+  src="{% url 'tree_qr_png' tree.qr_id %}"
+  class="img-fluid"
+  alt="Tree QR">
+    </p>
+
+    <dl class="row">
+      <dt class="col-sm-3">{% trans "QRコードID" %}</dt>
+      <dd class="col-sm-9">{{ tree.qr_id }}</dd>
+
+      <dt class="col-sm-3">{% trans "品種" %}</dt>
+      <dd class="col-sm-9">{{ tree.variety.name }}</dd>
+
+      <dt class="col-sm-3">{% trans "圃場" %}</dt>
+      <dd class="col-sm-9">{{ tree.field.name }}</dd>
+
+      <dt class="col-sm-3">{% trans "樹齢(年)" %}</dt>
+      <dd class="col-sm-9">{{ tree.age }}</dd>
+
+      <dt class="col-sm-3">{% trans "植付日" %}</dt>
+      <dd class="col-sm-9">
+        {% if tree.planting_date %}
+          {{ tree.planting_date|date:"Y-m-d" }}
+        {% else %}
+          <span class="text-muted">{% trans "未登録" %}</span>
+        {% endif %}
+      </dd>
+
+      <dt class="col-sm-3">{% trans "定植日" %}</dt>
+      <dd class="col-sm-9">
+        {% if tree.transplant_date %}
+          {{ tree.transplant_date|date:"Y-m-d" }}
+        {% else %}
+          <span class="text-muted">{% trans "未登録" %}</span>
+        {% endif %}
+      </dd>
+
+      <dt class="col-sm-3">{% trans "苗木業者" %}</dt>
+      <dd class="col-sm-9">
+        {% if tree.nursery %}
+          {{ tree.nursery }}
+        {% else %}
+          <span class="text-muted">{% trans "未登録" %}</span>
+        {% endif %}
+      </dd>
+
+      <dt class="col-sm-3">{% trans "仕立て方式" %}</dt>
+      <dd class="col-sm-9">
+        {% if tree.training_type %}
+          {{ tree.training_type }}
+        {% else %}
+          <span class="text-muted">{% trans "未登録" %}</span>
+        {% endif %}
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<!-- クラスター一覧 -->
+{% if clusters %}
+  <h2 class="h5 mb-2">{% trans "撮影済みクラスタ" %}</h2>
+  <ul>
+    {% for c in clusters %}
+      <li>
+        <a href="{% url 'cluster_detail' c.id %}">
+          {{ c.number }} — {{ c.created_at|date:"Y-m-d H:i" }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+<a href="{% url 'home' %}" class="btn btn-secondary mt-4">{% trans "ダッシュボードへ戻る" %}</a>
+{% endblock %}

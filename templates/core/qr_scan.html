@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}{% trans "QR スキャン" %}{% endblock %}
+
+{% block content %}
+<h1 class="h5 mb-3">{% trans "QR スキャン" %}</h1>
+
+<div class="mb-3">
+  <label class="form-label">{% trans "作業種別" %}</label>
+  <select id="taskType" class="form-select">
+    {% for t in task_types %}
+      <option value="{{ t.id }}">{{ t.name }}</option>
+    {% endfor %}
+  </select>
+</div>
+
+<div id="reader"
+     style="width:300px; height:300px; margin-bottom:1rem;"></div>
+{% endblock %}
+
+{% block extra_js %}
+  <!-- QR ライブラリ -->
+  <script src="https://unpkg.com/html5-qrcode"></script>
+
+  <script>
+    // CSRF token ヘルパー
+    function getCookie(name) {
+      const match = document.cookie.match('(^|;)\\s*'+ name +'\\s*=\\s*([^;]+)');
+      return match ? match.pop() : '';
+    }
+    const csrftoken = getCookie('csrftoken');
+
+    function startScanner() {
+      const qr = new Html5Qrcode("reader");
+      qr.start(
+        { facingMode: "environment" },
+        { fps: 10, qrbox: 250 },
+        decodedText => {
+          qr.stop();  // 1回だけスキャンして停止
+
+          fetch("{% url 'api_scan_start' %}", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-CSRFToken": csrftoken
+            },
+            body: JSON.stringify({
+              qr_id: decodedText,
+              task_type_id: document.getElementById("taskType").value
+            })
+          })
+          .then(res => {
+            if (!res.ok) throw new Error("HTTP " + res.status);
+            // 成功したら遷移
+            window.location.href = "{% url 'scan_success' %}";
+          })
+          .catch(err => alert("{% trans '登録に失敗しました:' %} " + err));
+        }
+      );
+    }
+
+    document.addEventListener("DOMContentLoaded", startScanner);
+  </script>
+{% endblock %}

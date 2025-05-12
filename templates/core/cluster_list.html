@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "クラスター一覧" %}{% endblock %}
+
+{% block content %}
+<h1 class="h5 mb-3">{% trans "クラスター一覧" %}</h1>
+<a href="{% url 'cluster_add' %}" class="btn btn-primary mb-3">
+  {% trans "新規クラスター追加" %}
+</a>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>{% trans "樹木 QR ID" %}</th>
+      <th>{% trans "房番号" %}</th>
+      <th>{% trans "撮影日時" %}</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for cluster in clusters %}
+    <tr>
+      <td><a href="{% url 'cluster_detail' cluster.pk %}">{{ cluster.tree.qr_id }}</a></td>
+      <td>{{ cluster.number }}</td>
+      <td>{{ cluster.created_at }}</td>
+      <td>
+        <a href="{% url 'cluster_edit' cluster.pk %}" class="btn btn-sm btn-secondary">
+          {% trans "編集" %}
+        </a>
+        <a href="{% url 'cluster_delete' cluster.pk %}" class="btn btn-sm btn-danger">
+          {% trans "削除" %}
+        </a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="4" class="text-center">{% trans "登録されたクラスターはありません。" %}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

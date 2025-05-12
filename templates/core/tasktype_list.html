@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}作業種管理{% endblock %}
+
+{% block content %}
+<h1 class="h5 mb-3">作業種一覧</h1>
+<a href="{% url 'tasktype_add' %}" class="btn btn-primary mb-3">新規追加</a>
+<table class="table">
+  <thead>
+    <tr><th>名前</th><th></th></tr>
+  </thead>
+  <tbody>
+    {% for t in tasktypes %}
+    <tr>
+      <td>{{ t.name }}</td>
+      <td>
+        <a href="{% url 'tasktype_edit' t.pk %}" class="btn btn-sm btn-secondary">編集</a>
+        <a href="{% url 'tasktype_delete' t.pk %}" class="btn btn-sm btn-danger">削除</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

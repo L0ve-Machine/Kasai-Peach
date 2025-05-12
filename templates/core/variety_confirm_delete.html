@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "品種削除" %}{% endblock %}
+
+{% block content %}
+<h1 class="h5 text-danger">{% trans "この品種を削除してよいですか？" %}</h1>
+<p><strong>{{ object.name }}</strong></p>
+
+<form method="post">
+  {% csrf_token %}
+  <button class="btn btn-danger">{% trans "削除" %}</button>
+  <a href="{% url 'variety_list' %}" class="btn btn-secondary">
+    {% trans "キャンセル" %}
+  </a>
+</form>
+{% endblock %}

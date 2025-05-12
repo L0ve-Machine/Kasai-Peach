@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "登録完了" %}{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="height:60vh;">
+  <div class="text-center">
+    <h1 class="display-5">{% trans "登録しました！" %}</h1>
+    <p class="mt-3">{% trans "続けて別のQRを読み取りたい場合はこちら：" %}</p>
+    <a href="{% url 'qr_scan' %}" class="btn btn-primary mt-2">
+      {% trans "QR スキャンへ戻る" %}
+    </a>
+    <a href="{% url 'home' %}" class="btn btn-secondary mt-2">
+      {% trans "ダッシュボードへ戻る" %}
+    </a>
+  </div>
+</div>
+{% endblock %}
+

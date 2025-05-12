@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load i18n widget_tweaks %}
+
+{% block title %}
+  {% if object %}{% trans "作業種編集" %}{% else %}{% trans "作業種追加" %}{% endif %}
+{% endblock %}
+
+{% block content %}
+<h1 class="h5 mb-3">
+  {% if object %}{% trans "作業種編集" %}{% else %}{% trans "作業種追加" %}{% endif %}
+</h1>
+
+<div class="row justify-content-center">
+  <div class="col-12 col-md-6 col-lg-4">
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+
+      <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary">{% trans "保存" %}</button>
+        <a href="{% url 'tasktype_list' %}" class="btn btn-secondary">{% trans "キャンセル" %}</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+

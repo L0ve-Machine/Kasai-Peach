@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "樹木削除" %}{% endblock %}
+
+{% block content %}
+<h1 class="h5 text-danger">{% trans "この樹木を削除してよいですか？" %}</h1>
+<p><strong>{{ object.qr_id }}</strong></p>
+
+<form method="post">
+  {% csrf_token %}
+  <button class="btn btn-danger">{% trans "削除" %}</button>
+  <a href="{% url 'tree_list' %}" class="btn btn-secondary">{% trans "キャンセル" %}</a>
+</form>
+{% endblock %}

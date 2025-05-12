@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "樹木一覧" %}{% endblock %}
+
+{% block content %}
+<h1 class="h5 mb-3">{% trans "樹木一覧" %}</h1>
+<a href="{% url 'tree_add' %}" class="btn btn-primary mb-3">
+  {% trans "新規樹木追加" %}
+</a>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>{% trans "QR ID" %}</th>
+      <th>{% trans "品種" %}</th>
+      <th>{% trans "圃場" %}</th>
+      <th>{% trans "樹齢(年)" %}</th>
+      <th>{% trans "植付日" %}</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for tree in trees %}
+    <tr>
+      <td><a href="{% url 'tree_detail' tree.qr_id %}">{{ tree.qr_id }}</a></td>
+      <td>{{ tree.variety.name }}</td>
+      <td>{{ tree.field.name }}</td>
+      <td>{{ tree.age|default:"-" }}</td>
+      <td>{{ tree.planting_date|default:"-" }}</td>
+      <td>
+        <a href="{% url 'tree_edit' tree.pk %}" class="btn btn-sm btn-secondary">
+          {% trans "編集" %}
+        </a>
+        <a href="{% url 'tree_delete' tree.pk %}" class="btn btn-sm btn-danger">
+          {% trans "削除" %}
+        </a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="6" class="text-center">{% trans "登録された樹木はありません。" %}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

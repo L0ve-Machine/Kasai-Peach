@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "圃場一覧" %}{% endblock %}
+
+{% block content %}
+<h1 class="h5 mb-3">{% trans "圃場一覧" %}</h1>
+<a href="{% url 'field_add' %}" class="btn btn-primary mb-3">
+  {% trans "新規圃場追加" %}
+</a>
+
+<!-- 🍑 桃の圃場 -->
+<h2 class="h6 mt-4">🍑 {% trans "桃の圃場" %}</h2>
+<div class="table-responsive mb-3">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>{% trans "ID" %}</th>
+        <th>{% trans "圃場名" %}</th>
+        <th>{% trans "住所" %}</th>
+        <th>{% trans "面積(㎡)" %}</th>
+        <th>{% trans "品種" %}</th>
+        <th>{% trans "本数" %}</th>
+        <th>{% trans "QRフィールド" %}</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for f in peach_fields %}
+        <tr>
+          <td>{{ f.id }}</td>
+          <td>{{ f.name }}</td>
+          <td>{{ f.address }}</td>
+          <td>{{ f.area }}</td>
+          <td>{{ f.variety.name }}</td>
+          <td>{{ f.tree_count }}</td>
+          <td>{{ f.qr_suggestion }}</td>
+          <td>
+            <a href="{% url 'field_edit' f.pk %}" class="btn btn-sm btn-secondary">{% trans "編集" %}</a>
+            <a href="{% url 'field_delete' f.pk %}" class="btn btn-sm btn-danger">{% trans "削除" %}</a>
+            <a href="{% url 'field_weather' f.pk %}" class="btn btn-sm btn-info">{% trans "天気" %}</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="8" class="text-center">{% trans "桃の圃場はありません。" %}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<!-- 🍇 ぶどうの圃場 -->
+<h2 class="h6 mt-4">🍇 {% trans "ぶどうの圃場" %}</h2>
+<div class="table-responsive mb-3">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>{% trans "ID" %}</th>
+        <th>{% trans "圃場名" %}</th>
+        <th>{% trans "住所" %}</th>
+        <th>{% trans "面積(㎡)" %}</th>
+        <th>{% trans "品種" %}</th>
+        <th>{% trans "本数" %}</th>
+        <th>{% trans "QRフィールド" %}</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for f in grape_fields %}
+        <tr>
+          <td>{{ f.id }}</td>
+          <td>{{ f.name }}</td>
+          <td>{{ f.address }}</td>
+          <td>{{ f.area }}</td>
+          <td>{{ f.variety.name }}</td>
+          <td>{{ f.tree_count }}</td>
+          <td>{{ f.qr_suggestion }}</td>
+          <td>
+            <a href="{% url 'field_edit' f.pk %}" class="btn btn-sm btn-secondary">{% trans "編集" %}</a>
+            <a href="{% url 'field_delete' f.pk %}" class="btn btn-sm btn-danger">{% trans "削除" %}</a>
+            <a href="{% url 'field_weather' f.pk %}" class="btn btn-sm btn-info">{% trans "天気" %}</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="8" class="text-center">{% trans "ぶどうの圃場はありません。" %}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,387 @@
+# This file is distributed under the same license as the Django package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Django\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-11 23:05+0100\n"
+"PO-Revision-Date: 2010-05-13 15:35+0200\n"
+"Last-Translator: Django team\n"
+"Language-Team: English <en@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\vendor\django\contrib\auth\admin.py:46
+msgid "Personal info"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\admin.py:47
+msgid "Permissions"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\admin.py:50
+msgid "Important dates"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\admin.py:134
+#, python-format
+msgid "%(name)s object with primary key %(key)r does not exist."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\admin.py:144
+msgid "Password changed successfully."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\admin.py:164
+#, python-format
+msgid "Change password: %s"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\apps.py:16
+msgid "Authentication and Authorization"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\base_user.py:49
+msgid "password"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\base_user.py:50
+msgid "last login"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\forms.py:41
+msgid "No password set."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\forms.py:46
+msgid "Invalid password format or unknown hashing algorithm."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\forms.py:89
+#: .\vendor\django\contrib\auth\forms.py:330
+#: .\vendor\django\contrib\auth\forms.py:403
+msgid "The two password fields didn’t match."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\forms.py:92
+#: .\vendor\django\contrib\auth\forms.py:145
+#: .\vendor\django\contrib\auth\forms.py:175
+#: .\vendor\django\contrib\auth\forms.py:407
+msgid "Password"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\forms.py:98
+msgid "Password confirmation"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\forms.py:101
+#: .\vendor\django\contrib\auth\forms.py:416
+msgid "Enter the same password as before, for verification."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\forms.py:147
+msgid ""
+"Raw passwords are not stored, so there is no way to see this user’s "
+"password, but you can change the password using <a href=\"{}\">this form</a>."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\forms.py:182
+#, python-format
+msgid ""
+"Please enter a correct %(username)s and password. Note that both fields may "
+"be case-sensitive."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\forms.py:185
+msgid "This account is inactive."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\forms.py:248
+msgid "Email"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\forms.py:333
+msgid "New password"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\forms.py:339
+msgid "New password confirmation"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\forms.py:375
+msgid "Your old password was entered incorrectly. Please enter it again."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\forms.py:378
+msgid "Old password"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\forms.py:413
+msgid "Password (again)"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\hashers.py:297
+#: .\vendor\django\contrib\auth\hashers.py:388
+#: .\vendor\django\contrib\auth\hashers.py:477
+#: .\vendor\django\contrib\auth\hashers.py:544
+#: .\vendor\django\contrib\auth\hashers.py:586
+#: .\vendor\django\contrib\auth\hashers.py:633
+#: .\vendor\django\contrib\auth\hashers.py:677
+#: .\vendor\django\contrib\auth\hashers.py:723
+msgid "algorithm"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\hashers.py:298
+msgid "iterations"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\hashers.py:299
+#: .\vendor\django\contrib\auth\hashers.py:394
+#: .\vendor\django\contrib\auth\hashers.py:479
+#: .\vendor\django\contrib\auth\hashers.py:545
+#: .\vendor\django\contrib\auth\hashers.py:587
+#: .\vendor\django\contrib\auth\hashers.py:724
+msgid "salt"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\hashers.py:300
+#: .\vendor\django\contrib\auth\hashers.py:395
+#: .\vendor\django\contrib\auth\hashers.py:546
+#: .\vendor\django\contrib\auth\hashers.py:588
+#: .\vendor\django\contrib\auth\hashers.py:634
+#: .\vendor\django\contrib\auth\hashers.py:678
+#: .\vendor\django\contrib\auth\hashers.py:725
+msgid "hash"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\hashers.py:389
+msgid "variety"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\hashers.py:390
+msgid "version"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\hashers.py:391
+msgid "memory cost"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\hashers.py:392
+msgid "time cost"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\hashers.py:393
+msgid "parallelism"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\hashers.py:478
+msgid "work factor"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\hashers.py:480
+msgid "checksum"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:58
+#: .\vendor\django\contrib\auth\models.py:109
+msgid "name"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:62
+msgid "content type"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:64
+msgid "codename"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:69
+msgid "permission"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:70
+#: .\vendor\django\contrib\auth\models.py:112
+msgid "permissions"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:119
+msgid "group"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:120
+#: .\vendor\django\contrib\auth\models.py:247
+msgid "groups"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:238
+msgid "superuser status"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:241
+msgid ""
+"Designates that this user has all permissions without explicitly assigning "
+"them."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:250
+msgid ""
+"The groups this user belongs to. A user will get all permissions granted to "
+"each of their groups."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:258
+msgid "user permissions"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:260
+msgid "Specific permissions for this user."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:331
+msgid "username"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:334
+msgid "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:337
+msgid "A user with that username already exists."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:340
+msgid "first name"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:341
+msgid "last name"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:342
+msgid "email address"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:344
+msgid "staff status"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:346
+msgid "Designates whether the user can log into this admin site."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:349
+msgid "active"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:352
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:356
+msgid "date joined"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:365
+msgid "user"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\models.py:366
+msgid "users"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\password_validation.py:102
+#, python-format
+msgid ""
+"This password is too short. It must contain at least %(min_length)d "
+"character."
+msgid_plural ""
+"This password is too short. It must contain at least %(min_length)d "
+"characters."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\vendor\django\contrib\auth\password_validation.py:112
+#, python-format
+msgid "Your password must contain at least %(min_length)d character."
+msgid_plural "Your password must contain at least %(min_length)d characters."
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\vendor\django\contrib\auth\password_validation.py:187
+#, python-format
+msgid "The password is too similar to the %(verbose_name)s."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\password_validation.py:193
+msgid "Your password can’t be too similar to your other personal information."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\password_validation.py:219
+msgid "This password is too common."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\password_validation.py:224
+msgid "Your password can’t be a commonly used password."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\password_validation.py:234
+msgid "This password is entirely numeric."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\password_validation.py:239
+msgid "Your password can’t be entirely numeric."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\templates\registration\password_reset_subject.txt:2
+#, python-format
+msgid "Password reset on %(site_name)s"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\validators.py:12
+msgid ""
+"Enter a valid username. This value may contain only English letters, "
+"numbers, and @/./+/-/_ characters."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\validators.py:22
+msgid ""
+"Enter a valid username. This value may contain only letters, numbers, and "
+"@/./+/-/_ characters."
+msgstr ""
+
+#: .\vendor\django\contrib\auth\views.py:160
+msgid "Logged out"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\views.py:217
+msgid "Password reset"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\views.py:244
+msgid "Password reset sent"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\views.py:254
+msgid "Enter new password"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\views.py:314
+msgid "Password reset unsuccessful"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\views.py:322
+msgid "Password reset complete"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\views.py:334
+msgid "Password change"
+msgstr ""
+
+#: .\vendor\django\contrib\auth\views.py:357
+msgid "Password change successful"
+msgstr ""

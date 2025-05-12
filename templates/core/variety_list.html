@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "品種管理" %}{% endblock %}
+
+{% block content %}
+<h1 class="h5 mb-3">{% trans "品種管理" %}</h1>
+<a href="{% url 'variety_add' %}" class="btn btn-primary mb-3">
+  {% trans "新規品種追加" %}
+</a>
+
+<h2 class="h6 mt-4">{% trans "🍑 桃品種" %}</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>{% trans "ID" %}</th><th>{% trans "品種名" %}</th><th>{% trans "収穫開始" %}</th><th>{% trans "QR接頭辞" %}</th><th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for v in peaches %}
+    <tr>
+      <td>{{ v.id }}</td>
+      <td>{{ v.name }}</td>
+      <td>{{ v.harvest_start }}</td>
+      <td>{{ v.qr_prefix }}</td>
+      <td>
+        <a href="{% url 'variety_edit' v.pk %}" class="btn btn-sm btn-secondary">{% trans "編集" %}</a>
+        <a href="{% url 'variety_delete' v.pk %}" class="btn btn-sm btn-danger">{% trans "削除" %}</a>
+      </td>
+    </tr>
+    {% empty %}
+      <tr><td colspan="5" class="text-center">{% trans "桃品種は未登録です。" %}</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h2 class="h6 mt-4">{% trans "🍇 ぶどう品種" %}</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>{% trans "ID" %}</th><th>{% trans "品種名" %}</th><th>{% trans "収穫開始" %}</th><th>{% trans "QR接頭辞" %}</th><th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for v in grapes %}
+    <tr>
+      <td>{{ v.id }}</td>
+      <td>{{ v.name }}</td>
+      <td>{{ v.harvest_start }}</td>
+      <td>{{ v.qr_prefix }}</td>
+      <td>
+        <a href="{% url 'variety_edit' v.pk %}" class="btn btn-sm btn-secondary">{% trans "編集" %}</a>
+        <a href="{% url 'variety_delete' v.pk %}" class="btn btn-sm btn-danger">{% trans "削除" %}</a>
+      </td>
+    </tr>
+    {% empty %}
+      <tr><td colspan="5" class="text-center">{% trans "ぶどう品種は未登録です。" %}</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
