@@ -1,6 +1,6 @@
 from django.urls import path, include
 from . import views
-
+from .views import ClusterPhotoCreateView
 urlpatterns = [
     path("", views.home, name="home"),
     path("schedules/", views.AllSchedulesView.as_view(), name="all_schedules"),
@@ -37,6 +37,8 @@ urlpatterns = [
     path("clusters/add/", views.ClusterCreateView.as_view(), name="cluster_add"),
     path("clusters/<int:pk>/edit/", views.ClusterUpdateView.as_view(), name="cluster_edit"),
     path("clusters/<int:pk>/delete/", views.ClusterDeleteView.as_view(), name="cluster_delete"),
+# ClusterPhoto の追加
+    path("clusters/<int:cluster_id>/photo/add/", views.ClusterPhotoCreateView.as_view(), name="clusterphoto_add"),
 
     # Variety CRUD
     path("varieties/", views.VarietyListView.as_view(), name="variety_list"),

@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load i18n widget_tweaks %}
+
+{% block title %}{% trans "房の写真追加" %}{% endblock %}
+
+{% block content %}
+<h1 class="h5 mb-3">{% trans "房の成長記録写真を追加" %}</h1>
+
+<div class="row justify-content-center">
+  <div class="col-12 col-md-8 col-lg-6">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <!-- 📷 ファイルアップロード -->
+      <div class="mb-3">
+        <label for="id_image">スマホまたはPCから画像を選択</label>
+        <input type="file" name="image" id="id_image"
+               accept="image/*" capture="environment"
+               class="form-control">
+        <div class="form-text">スマホならカメラが起動します。PCでは画像を選択してください。</div>
+      </div>
+
+      <!-- 📷 Webカメラ撮影用（PC用） -->
+      <div class="mt-4">
+        <h5>または、PCのカメラで撮影</h5>
+        <video id="camera" autoplay style="width: 100%; max-width: 400px;"></video>
+        <canvas id="snapshot" style="display:none;"></canvas>
+
+        <button type="button" id="capture" class="btn btn-outline-primary mt-2">📸 撮影</button>
+
+        <input type="hidden" name="image_data" id="image_data">
+        <img id="preview" src="" style="display:none; margin-top: 10px; max-width: 100%;">
+      </div>
+
+      <!-- 撮影日時 -->
+      <div class="mb-3 mt-4">
+        {{ form.taken_at.label_tag }}
+        {{ form.taken_at|add_class:"form-control" }}
+      </div>
+
+      <!-- メモ欄 -->
+      <div class="mb-3">
+        {{ form.note.label_tag }}
+        {{ form.note|add_class:"form-control" }}
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-success">{% trans "保存" %}</button>
+        <a href="{% url 'cluster_detail' cluster.id %}" class="btn btn-secondary">{% trans "キャンセル" %}</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  const video = document.getElementById('camera');
+  const canvas = document.getElementById('snapshot');
+  const captureButton = document.getElementById('capture');
+  const imageDataInput = document.getElementById('image_data');
+  const preview = document.getElementById('preview');
+
+  // カメラ起動
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then((stream) => {
+      video.srcObject = stream;
+    })
+    .catch((err) => {
+      alert("カメラが起動できません：" + err.message);
+    });
+
+  // 撮影処理
+  captureButton.addEventListener('click', () => {
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(video, 0, 0);
+    const dataURL = canvas.toDataURL('image/png');
+    imageDataInput.value = dataURL;
+    preview.src = dataURL;
+    preview.style.display = 'block';
+  });
+</script>
+{% endblock %}

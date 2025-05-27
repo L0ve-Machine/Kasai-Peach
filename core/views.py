@@ -145,6 +145,13 @@ class ClusterListView(LoginRequiredMixin, ListView):
     template_name = "core/cluster_list.html"
     context_object_name = "clusters"
 
+    def get_queryset(self):
+        return (
+            Cluster.objects
+                   .select_related('tree')
+                   .order_by('tree__qr_id', 'number')
+        )
+
 class ClusterCreateView(LoginRequiredMixin, CreateView):
     model = Cluster
     fields = ["tree", "number"]
@@ -409,3 +416,53 @@ class AllSchedulesView(LoginRequiredMixin, TemplateView):
         ctx["grapes"]  = Variety.objects.filter(fruit_type="grape").order_by("name")
         return ctx
 
+
+
+from django.views.generic import CreateView
+from .models import Cluster, ClusterPhoto
+from django.views.generic import CreateView
+from .models import Cluster, ClusterPhoto
+from .forms import ClusterPhotoForm
+from django.urls import reverse_lazy
+from django.utils import timezone
+from django.core.files.base import ContentFile
+from django.shortcuts import get_object_or_404
+import base64
+
+class ClusterPhotoCreateView(LoginRequiredMixin, CreateView):
+    model = ClusterPhoto
+    form_class = ClusterPhotoForm
+    template_name = "core/clusterphoto_form.html"
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx["cluster"] = get_object_or_404(Cluster, pk=self.kwargs["cluster_id"])
+        return ctx
+
+    def get_success_url(self):
+        return reverse_lazy("cluster_detail", args=[self.kwargs["cluster_id"]])
+
+    def form_valid(self, form):
+        cluster = get_object_or_404(Cluster, pk=self.kwargs["cluster_id"])
+        form.instance.cluster = cluster
+
+        image_data = self.request.POST.get("image_data")
+        print("📷 image_data present:", bool(image_data))
+        print("📁 request.FILES['image']:", self.request.FILES.get("image"))
+
+        if image_data and not self.request.FILES.get("image"):
+            try:
+                format, imgstr = image_data.split(';base64,')
+                ext = format.split('/')[-1]
+                file = ContentFile(base64.b64decode(imgstr),
+                                   name=f"photo_{timezone.now().strftime('%Y%m%d%H%M%S')}.{ext}")
+                form.instance.image = file
+                print("✅ image was decoded and assigned.")
+            except Exception as e:
+                print("❌ error decoding image:", e)
+                form.add_error(None, "画像データの処理に失敗しました。")
+                return self.form_invalid(form)
+        else:
+            print("⚠ image_data 条件不成立。base64もFILESもなし？")
+
+        return super().form_valid(form)

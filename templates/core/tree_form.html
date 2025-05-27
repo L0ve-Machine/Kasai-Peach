@@ -14,37 +14,89 @@
   <div class="col-12 col-md-8 col-lg-6">
     <form method="post">
       {% csrf_token %}
+
+      {% if form.non_field_errors %}
+        <div class="alert alert-danger">
+          {{ form.non_field_errors }}
+        </div>
+      {% endif %}
+
       <div class="mb-3">
         {{ form.qr_id.label_tag }}<br>
         {{ form.qr_id|add_class:"form-control" }}
+        {% if form.qr_id.errors %}
+          <div class="text-danger small">
+            {{ form.qr_id.errors }}
+          </div>
+        {% endif %}
       </div>
+
       <div class="mb-3">
         {{ form.variety.label_tag }}<br>
         {{ form.variety|add_class:"form-select" }}
+        {% if form.variety.errors %}
+          <div class="text-danger small">
+            {{ form.variety.errors }}
+          </div>
+        {% endif %}
       </div>
+
       <div class="mb-3">
         {{ form.field.label_tag }}<br>
         {{ form.field|add_class:"form-select" }}
+        {% if form.field.errors %}
+          <div class="text-danger small">
+            {{ form.field.errors }}
+          </div>
+        {% endif %}
       </div>
+
       <div class="mb-3">
         {{ form.age.label_tag }}<br>
         {{ form.age|add_class:"form-control" }}
+        {% if form.age.errors %}
+          <div class="text-danger small">
+            {{ form.age.errors }}
+          </div>
+        {% endif %}
       </div>
+
       <div class="mb-3">
-        {{ form.planting_date.label_tag }}<br>
+        {{ form.planting_date.label_tag }}
+        <small class="text-muted">例: 2025-05-26</small><br>
         {{ form.planting_date|add_class:"form-control" }}
+        {% if form.planting_date.errors %}
+          <div class="text-danger small">{{ form.planting_date.errors }}</div>
+        {% endif %}
       </div>
+
       <div class="mb-3">
-        {{ form.transplant_date.label_tag }}<br>
+        {{ form.transplant_date.label_tag }}
+        <small class="text-muted">例: 2025-05-26</small><br>
         {{ form.transplant_date|add_class:"form-control" }}
+        {% if form.transplant_date.errors %}
+          <div class="text-danger small">{{ form.transplant_date.errors }}</div>
+        {% endif %}
       </div>
+
       <div class="mb-3">
         {{ form.nursery.label_tag }}<br>
         {{ form.nursery|add_class:"form-control" }}
+        {% if form.nursery.errors %}
+          <div class="text-danger small">
+            {{ form.nursery.errors }}
+          </div>
+        {% endif %}
       </div>
+
       <div class="mb-3">
         {{ form.training_type.label_tag }}<br>
         {{ form.training_type|add_class:"form-control" }}
+        {% if form.training_type.errors %}
+          <div class="text-danger small">
+            {{ form.training_type.errors }}
+          </div>
+        {% endif %}
       </div>
 
       <div class="d-flex justify-content-between">
@@ -55,4 +107,5 @@
   </div>
 </div>
 {% endblock %}
+
 

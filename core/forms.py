@@ -1,5 +1,5 @@
 from django import forms
-from .models import TaskSchedule
+from .models import TaskSchedule, ClusterPhoto
 
 class TaskScheduleForm(forms.ModelForm):
     class Meta:
@@ -42,3 +42,19 @@ class WorkLogFilterForm(forms.Form):
         label="終了日",
         widget=forms.DateInput(attrs={"type": "date", "class": "form-control"})
     )
+
+
+
+class ClusterPhotoForm(forms.ModelForm):
+    class Meta:
+        model = ClusterPhoto
+        fields = ["image", "taken_at", "note"]
+        widgets = {
+            "taken_at": forms.DateTimeInput(attrs={"type": "datetime-local", "class": "form-control"}),
+            "note": forms.Textarea(attrs={"class": "form-control", "rows": 2}),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # PCカメラで撮影する場合に <input type="file"> が空でも通すため
+        self.fields["image"].required = False

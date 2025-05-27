@@ -1,6 +1,8 @@
 from django.conf import settings
 from django.db import models
 from django.urls import reverse_lazy
+from django.utils import timezone
+
 
 class Variety(models.Model):
     name = models.CharField("品種名", max_length=100)
@@ -99,3 +101,13 @@ class TaskSchedule(models.Model):
     def get_absolute_url(self):
         # 編集後のリダイレクト先：一覧に戻る
         return reverse_lazy("schedule_list", args=[self.variety_id])
+
+
+class ClusterPhoto(models.Model):
+    cluster = models.ForeignKey("Cluster", on_delete=models.CASCADE, related_name="photos")
+    image = models.ImageField(upload_to="cluster_photos/")
+    taken_at = models.DateTimeField("撮影日時", default=timezone.now)
+    note = models.TextField("メモ", blank=True)
+
+    def __str__(self):
+        return f"{self.cluster} - {self.taken_at:%Y-%m-%d %H:%M}"

@@ -7,8 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TreeManagement\n"
-"Report-Msgid-Bugs-To: kuskus025008@gmail.com\n"
-"POT-Creation-Date: 2025-05-11 23:11+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-27 18:33+0900\n"
 "PO-Revision-Date: 2025-05-11 23:11+0100\n"
 "Last-Translator: L0ve Machine <kuskus025008@gmail.com>\n"
 "Language-Team: L0ve Machine <kuskus025008@gmail.com>\n"
@@ -18,36 +18,88 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: templates/base.html:26
+#: .\templates\base.html:28 .\templates\core\tree_list.html:4
+#: .\templates\core\tree_list.html:7
+msgid "樹木一覧"
+msgstr "Tree List"
+
+#: .\templates\base.html:31
+#, fuzzy
+#| msgid "樹木一覧"
+msgid "房一覧"
+msgstr "Tree List"
+
+#: .\templates\base.html:34
 msgid "QRスキャン"
 msgstr "QR Scan"
 
-#: templates/base.html:29
+#: .\templates\base.html:37
 msgid "作業種管理"
 msgstr "Task Type Management"
 
-#: templates/base.html:32 templates/core/variety_list.html:4 templates/core/variety_list.html:7
+#: .\templates\base.html:40 .\templates\core\variety_list.html:4
+#: .\templates\core\variety_list.html:7
 msgid "品種管理"
 msgstr "Variety Management"
 
-#: templates/base.html:35
+#: .\templates\base.html:43
 msgid "圃場管理"
 msgstr "Field Management"
 
-#: templates/core/cluster_confirm_delete.html:4
+#: .\templates\base.html:66
+msgid "ログアウト"
+msgstr "Log out"
+
+#: .\templates\base.html:72 .\templates\registration\login.html:5
+#: .\templates\registration\login.html:12
+#: .\templates\registration\login.html:33
+msgid "ログイン"
+msgstr "Log in"
+
+#: .\templates\core\all_schedules.html:4 .\templates\core\all_schedules.html:7
+#, fuzzy
+#| msgid "桃のスケジュール一覧へ"
+msgid "全スケジュール一覧"
+msgstr "View Peach Schedule List"
+
+#: .\templates\core\all_schedules.html:10
+#, fuzzy
+#| msgid "桃のスケジュール一覧へ"
+msgid "桃品種のスケジュール"
+msgstr "View Peach Schedule List"
+
+#: .\templates\core\all_schedules.html:20
+#: .\templates\core\all_schedules.html:41
+msgid "設定へ"
+msgstr ""
+
+#: .\templates\core\all_schedules.html:26 .\templates\core\variety_list.html:32
+msgid "桃品種は未登録です。"
+msgstr "No peach varieties registered."
+
+#: .\templates\core\all_schedules.html:31
+#, fuzzy
+#| msgid "桃のスケジュール一覧へ"
+msgid "ぶどう品種のスケジュール"
+msgstr "View Peach Schedule List"
+
+#: .\templates\core\all_schedules.html:47 .\templates\core\variety_list.html:57
+msgid "ぶどう品種は未登録です。"
+msgstr "No grape varieties registered."
+
+#: .\templates\core\cluster_confirm_delete.html:4
 msgid "クラスター削除"
 msgstr "Delete Cluster"
 
-#: templates/core/cluster_confirm_delete.html:7
+#: .\templates\core\cluster_confirm_delete.html:7
 msgid "このクラスターを削除してよいですか？"
 msgstr "Are you sure you want to delete this cluster?"
-
 
 #: .\templates\core\cluster_confirm_delete.html:12
 #: .\templates\core\cluster_list.html:32
 #: .\templates\core\field_confirm_delete.html:12
-#: .\templates\core\field_list.html:39 .\templates\core\field_list.html:78
-#: .\templates\core\schedule_confirm_delete.html:11
+#: .\templates\core\field_list.html:40 .\templates\core\field_list.html:81
+#: .\templates\core\schedule_confirm_delete.html:13
 #: .\templates\core\schedule_list.html:37
 #: .\templates\core\tree_confirm_delete.html:12
 #: .\templates\core\tree_list.html:36
@@ -57,132 +109,146 @@ msgid "削除"
 msgstr "Delete"
 
 #: .\templates\core\cluster_confirm_delete.html:13
-#: .\templates\core\cluster_form.html:25
+#: .\templates\core\cluster_form.html:27
+#: .\templates\core\clusterphoto_form.html:49
 #: .\templates\core\field_confirm_delete.html:13
-#: .\templates\core\field_form.html:45
-#: .\templates\core\schedule_confirm_delete.html:12
-#: .\templates\core\schedule_form.html:39
+#: .\templates\core\field_form.html:44
+#: .\templates\core\schedule_confirm_delete.html:16
+#: .\templates\core\schedule_form.html:41
+#: .\templates\core\tasktype_form.html:21
 #: .\templates\core\tree_confirm_delete.html:13
-#: .\templates\core\tree_form.html:48
+#: .\templates\core\tree_form.html:104
 #: .\templates\core\variety_confirm_delete.html:14
-#: .\templates\core\variety_form.html:32
+#: .\templates\core\variety_form.html:36
 msgid "キャンセル"
 msgstr "Cancel"
 
-#: templates/core/cluster_form.html:6 templates/core/cluster_form.html:11
+#: .\templates\core\cluster_form.html:5 .\templates\core\cluster_form.html:10
 msgid "クラスター編集"
 msgstr "Edit Cluster"
 
-#: templates/core/cluster_form.html:6 templates/core/cluster_form.html:11
+#: .\templates\core\cluster_form.html:5 .\templates\core\cluster_form.html:10
 msgid "クラスター追加"
 msgstr "Add Cluster"
 
-#: templates/core/cluster_form.html:24 templates/core/field_form.html:44 \
-#: templates/core/schedule_form.html:36 templates/core/tree_form.html:47 \
-#: templates/core/variety_form.html:31
+#: .\templates\core\cluster_form.html:26
+#: .\templates\core\clusterphoto_form.html:48
+#: .\templates\core\field_form.html:43 .\templates\core\schedule_form.html:39
+#: .\templates\core\tasktype_form.html:20 .\templates\core\tree_form.html:103
+#: .\templates\core\variety_form.html:35
 msgid "保存"
 msgstr "Save"
 
-#: templates/core/cluster_list.html:4 templates/core/cluster_list.html:7
+#: .\templates\core\cluster_list.html:4 .\templates\core\cluster_list.html:7
 msgid "クラスター一覧"
 msgstr "Cluster List"
 
-#: templates/core/cluster_list.html:9
+#: .\templates\core\cluster_list.html:9
 msgid "新規クラスター追加"
 msgstr "Add New Cluster"
 
-#: templates/core/cluster_list.html:15
+#: .\templates\core\cluster_list.html:15
 msgid "樹木 QR ID"
 msgstr "Tree QR ID"
 
-#: templates/core/cluster_list.html:16
+#: .\templates\core\cluster_list.html:16
 msgid "房番号"
 msgstr "Cluster Number"
 
-#: templates/core/cluster_list.html:17
+#: .\templates\core\cluster_list.html:17
 msgid "撮影日時"
 msgstr "Date Taken"
 
-#: .\templates\core\cluster_list.html:29 .\templates\core\field_list.html:38
-#: .\templates\core\field_list.html:77 .\templates\core\schedule_list.html:34
+#: .\templates\core\cluster_list.html:29 .\templates\core\field_list.html:39
+#: .\templates\core\field_list.html:80 .\templates\core\schedule_list.html:34
 #: .\templates\core\tree_list.html:33 .\templates\core\variety_list.html:27
 #: .\templates\core\variety_list.html:52
 msgid "編集"
 msgstr "Edit"
 
-#: templates/core/cluster_list.html:38
+#: .\templates\core\cluster_list.html:38
 msgid "登録されたクラスターはありません。"
 msgstr "No clusters have been registered."
 
-#: templates/core/field_confirm_delete.html:4
+#: .\templates\core\clusterphoto_form.html:4
+msgid "房の写真追加"
+msgstr "Add Cluster Photo"
+
+#: .\templates\core\clusterphoto_form.html:7
+msgid "房の成長記録写真を追加"
+msgstr "Add a Growth Record Photo"
+
+#: .\templates\core\field_confirm_delete.html:4
 msgid "圃場削除"
 msgstr "Delete Field"
 
-#: templates/core/field_confirm_delete.html:7
+#: .\templates\core\field_confirm_delete.html:7
 msgid "この圃場を削除してよいですか？"
 msgstr "Are you sure you want to delete this field?"
 
-#: templates/core/field_form.html:7 templates/core/field_form.html:15
+#: .\templates\core\field_form.html:5 .\templates\core\field_form.html:10
 msgid "圃場編集"
 msgstr "Edit Field"
 
-#: templates/core/field_form.html:9 templates/core/field_form.html:15
+#: .\templates\core\field_form.html:5 .\templates\core\field_form.html:10
 msgid "圃場追加"
 msgstr "Add Field"
 
-#: templates/core/field_list.html:4 templates/core/field_list.html:7
+#: .\templates\core\field_list.html:4 .\templates\core\field_list.html:7
 msgid "圃場一覧"
 msgstr "Field List"
 
-#: templates/core/field_list.html:9
+#: .\templates\core\field_list.html:9
 msgid "新規圃場追加"
 msgstr "Add New Field"
 
-#: templates/core/field_list.html:13
+#: .\templates\core\field_list.html:13
 msgid "桃の圃場"
 msgstr "Peach Fields"
 
-#: templates/core/field_list.html:17 templates/core/field_list.html:56 templates/core/variety_list.html:16 templates/core/variety_list.html:41
+#: .\templates\core\field_list.html:18 .\templates\core\field_list.html:59
+#: .\templates\core\variety_list.html:16 .\templates\core\variety_list.html:41
 msgid "ID"
 msgstr "ID"
 
-#: templates/core/field_list.html:18 templates/core/field_list.html:57
+#: .\templates\core\field_list.html:19 .\templates\core\field_list.html:60
 msgid "圃場名"
 msgstr "Field Name"
 
-#: .\templates\core\field_list.html:19 .\templates\core\field_list.html:58
+#: .\templates\core\field_list.html:20 .\templates\core\field_list.html:61
 msgid "住所"
 msgstr "Address"
 
-#: templates/core/field_list.html:20 templates/core/field_list.html:59
+#: .\templates\core\field_list.html:21 .\templates\core\field_list.html:62
 msgid "面積(㎡)"
 msgstr "Area (㎡)"
 
-#: templates/core/field_list.html:21 templates/core/field_list.html:60 templates/core/tree_detail.html:20 templates/core/tree_list.html:16
+#: .\templates\core\field_list.html:22 .\templates\core\field_list.html:63
+#: .\templates\core\tree_detail.html:23 .\templates\core\tree_list.html:16
 msgid "品種"
 msgstr "Variety"
 
-#: templates/core/field_list.html:22 templates/core/field_list.html:61
+#: .\templates\core\field_list.html:23 .\templates\core\field_list.html:64
 msgid "本数"
 msgstr "Number of Trees"
 
-#: templates/core/field_list.html:23 templates/core/field_list.html:62
+#: .\templates\core\field_list.html:24 .\templates\core\field_list.html:65
 msgid "QRフィールド"
 msgstr "QR Field"
 
-#: templates/core/field_list.html:40 templates/core/field_list.html:79
+#: .\templates\core\field_list.html:41 .\templates\core\field_list.html:82
 msgid "天気"
 msgstr "Weather"
 
-#: templates/core/field_list.html:45
+#: .\templates\core\field_list.html:46
 msgid "桃の圃場はありません。"
 msgstr "No peach fields available."
 
-#: templates/core/field_list.html:52
+#: .\templates\core\field_list.html:54
 msgid "ぶどうの圃場"
 msgstr "Grape Fields"
 
-#: templates/core/field_list.html:84
+#: .\templates\core\field_list.html:87
 msgid "ぶどうの圃場はありません。"
 msgstr "No grape fields available."
 
@@ -190,83 +256,86 @@ msgstr "No grape fields available."
 msgid "ダッシュボード"
 msgstr "Dashboard"
 
-#: templates/core/home.html:14
+#: .\templates\core\home.html:14
 msgid "今日の作業件数"
 msgstr "Tasks Completed Today"
 
-#: templates/core/home.html:24
+#: .\templates\core\home.html:23
 msgid "今月の作業時間（分）"
 msgstr "Work Time This Month (minutes)"
 
-#: templates/core/home.html:34
+#: .\templates\core\home.html:32
 msgid "今月の作業ランキング"
 msgstr "Monthly Work Ranking"
 
-#: templates/core/home.html:39
+#: .\templates\core\home.html:37
 msgid "記録なし"
 msgstr "No Records"
 
-#: templates/core/home.html:53
-msgid "作業スケジュール"
-msgstr "Task Schedule"
+#: .\templates\core\home.html:47
+#, fuzzy
+#| msgid "桃のスケジュール一覧へ"
+msgid "スケジュール一括管理"
+msgstr "Bulk Schedule Management"
 
-#: templates/core/home.html:54
-msgid "品種ごとの作業期間を設定"
-msgstr "Configure Work Periods by Variety"
+#: .\templates\core\home.html:48
+msgid "すべての品種のスケジュール設定画面を一覧"
+msgstr "View schedule settings for all varieties"
 
-#: templates/core/home.html:56
-msgid "桃のスケジュール一覧へ"
-msgstr "View Peach Schedule List"
+#: .\templates\core\home.html:51
+msgid "一覧を見る"
+msgstr "View All"
 
-#: templates/core/qr_scan.html:4 templates/core/qr_scan.html:7
+#: .\templates\core\qr_scan.html:4 .\templates\core\qr_scan.html:7
 msgid "QR スキャン"
 msgstr "QR Scan"
 
-#: templates/core/qr_scan.html:10
+#: .\templates\core\qr_scan.html:10
 msgid "作業種別"
 msgstr "Task Type"
 
-#: templates/core/qr_scan.html:58
+#: .\templates\core\qr_scan.html:58
 msgid "登録に失敗しました:"
 msgstr "Registration Failed:"
 
-#: templates/core/scan_success.html:4
+#: .\templates\core\scan_success.html:4
 msgid "登録完了"
 msgstr "Registration Complete"
 
-#: templates/core/scan_success.html:9
+#: .\templates\core\scan_success.html:9
 msgid "登録しました！"
 msgstr "Successfully Registered!"
 
-#: templates/core/scan_success.html:10
+#: .\templates\core\scan_success.html:10
 msgid "続けて別のQRを読み取りたい場合はこちら："
 msgstr "Click here to scan another QR:"
 
-#: templates/core/scan_success.html:12
+#: .\templates\core\scan_success.html:12
 msgid "QR スキャンへ戻る"
 msgstr "Back to QR Scan"
 
-#: templates/core/scan_success.html:15 templates/core/tree_detail.html:82
+#: .\templates\core\scan_success.html:15 .\templates\core\tree_detail.html:85
 msgid "ダッシュボードへ戻る"
 msgstr "Back to Dashboard"
 
-#: templates/core/schedule_confirm_delete.html:4
+#: .\templates\core\schedule_confirm_delete.html:5
+#: .\templates\core\schedule_confirm_delete.html:8
 msgid "スケジュール削除"
 msgstr "Delete Schedule"
 
-#: templates/core/schedule_confirm_delete.html:7
+#: .\templates\core\schedule_confirm_delete.html:9
 msgid "このスケジュールを削除してよいですか？"
 msgstr "Are you sure you want to delete this schedule?"
 
-#: templates/core/schedule_form.html:5 templates/core/schedule_form.html:10
+#: .\templates\core\schedule_form.html:5 .\templates\core\schedule_form.html:10
 msgid "作業スケジュール編集"
 msgstr "Edit Task Schedule"
 
-#: templates/core/schedule_form.html:5 templates/core/schedule_form.html:10
+#: .\templates\core\schedule_form.html:5 .\templates\core\schedule_form.html:10
 msgid "作業スケジュール追加"
 msgstr "Add Task Schedule"
 
-#: templates/core/schedule_list.html:10
+#: .\templates\core\schedule_list.html:10
 msgid "スケジュール追加"
 msgstr "Add Schedule"
 
@@ -274,196 +343,190 @@ msgstr "Add Schedule"
 msgid "番号"
 msgstr "Number"
 
-#: templates/core/schedule_list.html:17 templates/core/worklog_list.html:39
+#: .\templates\core\schedule_list.html:17 .\templates\core\worklog_list.html:39
 msgid "作業種"
 msgstr "Task"
 
-#: templates/core/schedule_list.html:18
+#: .\templates\core\schedule_list.html:18
 msgid "開始時期"
 msgstr "Start Period"
 
-#: templates/core/schedule_list.html:19
+#: .\templates\core\schedule_list.html:19
 msgid "終了時期"
 msgstr "End Period"
 
-#: templates/core/schedule_list.html:20
+#: .\templates\core\schedule_list.html:20
 msgid "単位"
 msgstr "Unit"
 
-#: templates/core/tree_confirm_delete.html:4
+#: .\templates\core\tasktype_form.html:5 .\templates\core\tasktype_form.html:10
+msgid "作業種編集"
+msgstr "Edit Task Type"
+
+#: .\templates\core\tasktype_form.html:5 .\templates\core\tasktype_form.html:10
+msgid "作業種追加"
+msgstr "Add Task Type"
+
+#: .\templates\core\tree_confirm_delete.html:4
 msgid "樹木削除"
 msgstr "Delete Tree"
 
-#: templates/core/tree_confirm_delete.html:7
+#: .\templates\core\tree_confirm_delete.html:7
 msgid "この樹木を削除してよいですか？"
 msgstr "Are you sure you want to delete this tree?"
 
-#: templates/core/tree_detail.html:4 templates/core/tree_detail.html:7
+#: .\templates\core\tree_detail.html:4 .\templates\core\tree_detail.html:7
 msgid "樹木詳細"
 msgstr "Tree Details"
 
-#: .\templates\core\tree_detail.html:17
+#: .\templates\core\tree_detail.html:20
 msgid "QRコードID"
 msgstr "QR Code ID"
 
-#: templates/core/tree_detail.html:23 templates/core/tree_list.html:17
+#: .\templates\core\tree_detail.html:26 .\templates\core\tree_list.html:17
 msgid "圃場"
 msgstr "Field"
 
-#: templates/core/tree_detail.html:26 templates/core/tree_list.html:18
+#: .\templates\core\tree_detail.html:29 .\templates\core\tree_list.html:18
 msgid "樹齢(年)"
 msgstr "Age (years)"
 
-#: templates/core/tree_detail.html:29 templates/core/tree_list.html:19
+#: .\templates\core\tree_detail.html:32 .\templates\core\tree_list.html:19
 msgid "植付日"
 msgstr "Planting Date"
 
-#: templates/core/tree_detail.html:34 templates/core/tree_detail.html:43 templates/core/tree_detail.html:52 templates/core/tree_detail.html:61
+#: .\templates\core\tree_detail.html:37 .\templates\core\tree_detail.html:46
+#: .\templates\core\tree_detail.html:55 .\templates\core\tree_detail.html:64
 msgid "未登録"
 msgstr "Not Registered"
 
-#: templates/core/tree_detail.html:38
+#: .\templates\core\tree_detail.html:41
 msgid "定植日"
 msgstr "Transplant Date"
 
-#: templates/core/tree_detail.html:47
+#: .\templates\core\tree_detail.html:50
 msgid "苗木業者"
 msgstr "Nursery Supplier"
 
-#: templates/core/tree_detail.html:56
+#: .\templates\core\tree_detail.html:59
 msgid "仕立て方式"
 msgstr "Training Type"
 
-#: templates/core/tree_detail.html:70
-msgid "撮影済みクラスタ"
+#: .\templates\core\tree_detail.html:73
+#, fuzzy
+#| msgid "撮影済みクラスタ"
+msgid "作成済みクラスタ"
 msgstr "Photographed Clusters"
 
-#: templates/core/tree_form.html:5 templates/core/tree_form.html:10
+#: .\templates\core\tree_form.html:5 .\templates\core\tree_form.html:10
 msgid "樹木編集"
 msgstr "Edit Tree"
 
-#: templates/core/tree_form.html:5 templates/core/tree_form.html:10
+#: .\templates\core\tree_form.html:5 .\templates\core\tree_form.html:10
 msgid "樹木追加"
 msgstr "Add Tree"
 
-#: templates/core/tree_list.html:4 templates/core/tree_list.html:7
-msgid "樹木一覧"
-msgstr "Tree List"
-
-#: templates/core/tree_list.html:9
+#: .\templates\core\tree_list.html:9
 msgid "新規樹木追加"
 msgstr "Add New Tree"
 
-#: templates/core/tree_list.html:15
+#: .\templates\core\tree_list.html:15
 msgid "QR ID"
 msgstr "QR ID"
 
-#: templates/core/tree_list.html:42
+#: .\templates\core\tree_list.html:42
 msgid "登録された樹木はありません。"
 msgstr "No trees have been registered."
 
-#: templates/core/variety_confirm_delete.html:4
+#: .\templates\core\variety_confirm_delete.html:4
 msgid "品種削除"
 msgstr "Delete Variety"
 
-#: templates/core/variety_confirm_delete.html:7
+#: .\templates\core\variety_confirm_delete.html:7
 msgid "この品種を削除してよいですか？"
 msgstr "Are you sure you want to delete this variety?"
 
-#: templates/core/variety_form.html:5 templates/core/variety_form.html:10
+#: .\templates\core\variety_form.html:5 .\templates\core\variety_form.html:10
 msgid "品種編集"
 msgstr "Edit Variety"
 
-#: templates/core/variety_form.html:5 templates/core/variety_form.html:10
+#: .\templates\core\variety_form.html:5 .\templates\core\variety_form.html:10
 msgid "品種追加"
 msgstr "Add Variety"
 
-#: templates/core/variety_list.html:9
+#: .\templates\core\variety_list.html:9
 msgid "新規品種追加"
 msgstr "Add New Variety"
 
-#: templates/core/variety_list.html:12
+#: .\templates\core\variety_list.html:12
 msgid "🍑 桃品種"
 msgstr "🍑 Peach Varieties"
 
-#: templates/core/variety_list.html:16 templates/core/variety_list.html:41
+#: .\templates\core\variety_list.html:16 .\templates\core\variety_list.html:41
 msgid "品種名"
 msgstr "Variety Name"
 
-#: templates/core/variety_list.html:16 templates/core/variety_list.html:41
+#: .\templates\core\variety_list.html:16 .\templates\core\variety_list.html:41
 msgid "収穫開始"
 msgstr "Harvest Start"
 
-#: templates/core/variety_list.html:16 templates/core/variety_list.html:41
+#: .\templates\core\variety_list.html:16 .\templates\core\variety_list.html:41
 msgid "QR接頭辞"
 msgstr "QR Prefix"
 
-#: templates/core/variety_list.html:32
-msgid "桃品種は未登録です。"
-msgstr "No peach varieties registered."
-
-#: templates/core/variety_list.html:37
+#: .\templates\core\variety_list.html:37
 msgid "🍇 ぶどう品種"
 msgstr "🍇 Grape Varieties"
 
-#: templates/core/variety_list.html:57
-msgid "ぶどう品種は未登録です。"
-msgstr "No grape varieties registered."
-
-#: templates/core/worklog_list.html:4 templates/core/worklog_list.html:7
+#: .\templates\core\worklog_list.html:4 .\templates\core\worklog_list.html:7
 msgid "作業ログ一覧"
 msgstr "Work Log List"
 
-#: templates/core/worklog_list.html:28
+#: .\templates\core\worklog_list.html:28
 msgid "検索"
 msgstr "Search"
 
-#: templates/core/worklog_list.html:36
+#: .\templates\core\worklog_list.html:36
 msgid "日時"
 msgstr "Date"
 
-#: templates/core/worklog_list.html:37
+#: .\templates\core\worklog_list.html:37
 msgid "作業者"
 msgstr "Worker"
 
-#: templates/core/worklog_list.html:38
+#: .\templates\core\worklog_list.html:38
 msgid "樹木 QR"
 msgstr "Tree QR"
 
-#: templates/core/worklog_list.html:40
+#: .\templates\core\worklog_list.html:40
 msgid "開始"
 msgstr "Start"
 
-#: templates/core/worklog_list.html:41
+#: .\templates\core\worklog_list.html:41
 msgid "終了"
 msgstr "End"
 
-#: templates/core/worklog_list.html:42
+#: .\templates\core\worklog_list.html:42
 msgid "所要時間"
 msgstr "Duration"
 
-#: templates/core/worklog_list.html:57
+#: .\templates\core\worklog_list.html:57
 msgid "未終了"
 msgstr "In Progress"
 
-#: templates/core/worklog_list.html:72
+#: .\templates\core\worklog_list.html:72
 msgid "作業ログがまだありません。"
 msgstr "No work logs yet."
 
-#: .\templates\registration\login.html:5 .\templates\registration\login.html:12
-#: .\templates\registration\login.html:33
-msgid "ログイン"
-msgstr "Log in"
-
-#: templates/registration/login.html:16
+#: .\templates\registration\login.html:16
 msgid "ユーザー名かパスワードが正しくありません。"
 msgstr "Invalid username or password."
 
-#: templates/registration/login.html:23
+#: .\templates\registration\login.html:23
 msgid "ユーザー名"
 msgstr "Username"
 
-#: templates/registration/login.html:28
+#: .\templates\registration\login.html:28
 msgid "パスワード"
 msgstr "Password"
 
@@ -511,3 +574,9 @@ msgstr ""
 #: .\vendor\django\views\templates\default_urlconf.html:249
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#~ msgid "作業スケジュール"
+#~ msgstr "Task Schedule"
+
+#~ msgid "品種ごとの作業期間を設定"
+#~ msgstr "Configure Work Periods by Variety"
