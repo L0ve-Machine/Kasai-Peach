@@ -55,31 +55,35 @@
 
 {% block extra_js %}
 <script>
-  const video = document.getElementById('camera');
-  const canvas = document.getElementById('snapshot');
-  const captureButton = document.getElementById('capture');
-  const imageDataInput = document.getElementById('image_data');
-  const preview = document.getElementById('preview');
+const video = document.getElementById('camera');
+const canvas = document.getElementById('snapshot');
+const captureButton = document.getElementById('capture');
+const imageDataInput = document.getElementById('image_data');
+const preview = document.getElementById('preview');
 
-  // カメラ起動
-  navigator.mediaDevices.getUserMedia({ video: true })
-    .then((stream) => {
-      video.srcObject = stream;
-    })
-    .catch((err) => {
-      alert("カメラが起動できません：" + err.message);
-    });
+// 「背面カメラ」を優先して起動するように指定
+navigator.mediaDevices.getUserMedia({
+video: {
+facingMode: { ideal: "environment" } // ここで背面カメラを優先するように指定
+}
+})
+.then((stream) => {
+video.srcObject = stream;
+})
+.catch((err) => {
+alert("カメラが起動できません：" + err.message);
+});
 
-  // 撮影処理
-  captureButton.addEventListener('click', () => {
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    const ctx = canvas.getContext('2d');
-    ctx.drawImage(video, 0, 0);
-    const dataURL = canvas.toDataURL('image/png');
-    imageDataInput.value = dataURL;
-    preview.src = dataURL;
-    preview.style.display = 'block';
-  });
+// 撮影処理
+captureButton.addEventListener('click', () => {
+canvas.width = video.videoWidth;
+canvas.height = video.videoHeight;
+const ctx = canvas.getContext('2d');
+ctx.drawImage(video, 0, 0);
+const dataURL = canvas.toDataURL('image/png');
+imageDataInput.value = dataURL;
+preview.src = dataURL;
+preview.style.display = 'block';
+});
 </script>
 {% endblock %}

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-ev!&dhjh)o!ax-ky+(u1mtbm@x6^=-ou4462u2zpc0(ui)(%!+
 DEBUG = True
 
 #ALLOWED_HOSTS = ['160.251.202.134', 'kasaipeach.jp']
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1',]
 
 # Application definition
 
