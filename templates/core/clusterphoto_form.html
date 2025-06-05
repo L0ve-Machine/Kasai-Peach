@@ -11,13 +11,13 @@
     <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
 
-      <!-- 📷 画像アップロード -->
+      <!-- 📁 画像アップロードのみ（カメラ非起動） -->
       <div class="mb-3">
-        <label for="id_image">スマホやPCから画像を選択</label>
+        <label for="id_image">画像をアップロード</label>
         <input type="file" name="image" id="id_image"
-               accept="image/*" capture="environment"
+               accept="image/*"
                class="form-control">
-        <div class="form-text">スマホならカメラが起動、または撮影済みの写真を選べます。</div>
+        <div class="form-text">スマホ・PC問わず、撮影済みの画像を選択してください。</div>
       </div>
 
       <!-- 撮影日時 -->
