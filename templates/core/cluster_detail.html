@@ -14,13 +14,24 @@
 <hr>
 
 <h2 class="h5 mt-4">📸 成長記録写真</h2>
-{% if cluster.photos.all %}
+
+{# 写真レコードが１件以上あるかどうかをチェック #}
+{% if cluster.photos.exists %}
   {% for photo in cluster.photos.all %}
-    <div class="mb-3">
-      <img src="{{ photo.image.url }}" style="max-width: 300px;" class="img-thumbnail mb-1" />
-      <p class="mb-0"><strong>撮影日時:</strong> {{ photo.taken_at|date:"Y-m-d H:i" }}</p>
-      <p><strong>メモ:</strong> {{ photo.note }}</p>
-    </div>
+    {# ImageField にファイルが紐づいているかをチェック #}
+    {% if photo.image %}
+      <div class="mb-3">
+        <img src="{{ photo.image.url }}" style="max-width: 300px;" class="img-thumbnail mb-1" />
+        <p class="mb-0"><strong>撮影日時:</strong> {{ photo.taken_at|date:"Y-m-d H:i" }}</p>
+        <p><strong>メモ:</strong> {{ photo.note }}</p>
+      </div>
+    {% else %}
+      <div class="mb-3">
+        <p><em>※ この写真はまだアップロードされていません。</em></p>
+        <p class="mb-0"><strong>撮影日時:</strong> {{ photo.taken_at|date:"Y-m-d H:i" }}</p>
+        <p><strong>メモ:</strong> {{ photo.note }}</p>
+      </div>
+    {% endif %}
   {% endfor %}
 {% else %}
   <p>この房にはまだ成長記録写真が登録されていません。</p>
